@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.20",
+    "pg": "^8.8.0",
+    "request": "^2.88.2"
+  },
+  "name": "emoney-gopay-api",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbyssLector/emoney-gopay-api.git"
+  },
+  "author": "hakim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbyssLector/emoney-gopay-api/issues"
+  },
+  "homepage": "https://github.com/AbyssLector/emoney-gopay-api#readme"
+}
