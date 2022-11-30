@@ -1,0 +1,27 @@
+CREATE TABLE IF NOT EXISTS users(
+    user_id VARCHAR(12) NOT NULL,,
+	user_email varchar(20) NOT NULL,
+	user_name varchar(36) NOT NULL,
+	user_pass varchar(20) NOT NULL,
+	user_role int(1) NOT NULL,
+	user_balance int DEFAULT 0 NOT NULL,
+	user_history varchar(20),
+    CONSTRAINT user_PK PRIMARY KEY (user_id)
+);
+
+CREATE TABLE IF NOT EXISTS topup(
+    topup_id INT AUTO_INCREMENT,
+    user_id VARCHAR(12) NOT NULL,
+    topup_amount INT NOT NULL,
+    topup_date TIMESTAMP,
+    CONSTRAINT topup_pk PRIMARY KEY(topup_id)
+)
+
+transaction
+
+transaction_id int auto_increment,
+user_phone varchar(12) NOT NULL,
+transaction_description varchar (50),
+transaction_amount int NOT NULL,
+transaction_date TIMESTAMP,
+
