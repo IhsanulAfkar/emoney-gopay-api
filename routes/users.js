@@ -31,8 +31,7 @@ router.post('/', (req, res) => {
             });
         });
     } else if (phone) {
-        db.query(`SELECT * FROM users WHERE phonclear
-        e=? LIMIT 1`, [phone], (err, result, fields) => {
+        db.query(`SELECT * FROM users WHERE user_id=? LIMIT 1`, [phone], (err, result, fields) => {
             result = result[0];
             // console.log(result);
             // console.log(result.user_pass);
@@ -58,6 +57,19 @@ router.post('/', (req, res) => {
         res.status(400).json({ msg: 'Invalid Parameters' });
     }
 });
+
+// router.get('/history', authenticateToken, async (req, res) => {
+//      const queryResult = await db.promise().query(`SELECT * FROM transaction WHERE user_phone=?`, [req.response.id]);
+//     const transaction = queryResult[0];
+
+//     // const queryResult2 = await db.query(`SELECT * FROM topup WHERE user_phone=$1`, [req.response.phone]);
+//     const queryResult2 = await db.promise().query(`SELECT * FROM topup WHERE user_phone=?`, [req.response.id]);
+//     const topup = queryResult2[0];
+
+    
+//     const queryResult3 = await db.promise().query(`SELECT * FROM transfer WHERE user_phone=? OR user_target_phone=?`, [req.response.phone, req.response.id]);
+//     const transfer = queryResult3[0];
+// })
 
 
 
