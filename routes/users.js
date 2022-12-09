@@ -16,10 +16,10 @@ router.post('/', (req, res) => {
 
             if (err) {
                 console.log(err);
-                return res.status(401).json('Server error');
+                return res.status(401).json({msg:'Server error'});
             }
             if (!result || result.user_pass !== password)
-                return res.status(401).json('Invalid email/phone number or password');
+                return res.status(401).json({msg:'Invalid email/phone number or password'});
 
             const token = jwt.sign({
                 id: result.user_id,
@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
                 return res.status(401).json('Server error');
             }
             if (!result || result.user_pass !== password)
-                return res.status(401).json('Invalid email/phone number or password');
+                return res.status(401).json({msg:'Invalid email/phone number or password'});
 
             const token = jwt.sign({
                 id: result.user_id,

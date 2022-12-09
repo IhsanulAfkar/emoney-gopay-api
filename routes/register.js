@@ -18,15 +18,15 @@ router.post('/', authenticateHeader, async (req, res) => {
     
     const query1 = await db.promise().query(`SELECT * from users where user_name = ?`, [username])
     const result1 = query1[0][0];
-    if (result1) return res.status(400).json("Name already exists");
+    if (result1) return res.status(400).json({msg:"Name already exists"});
 
     const query2 = await db.promise().query(`SELECT * from users where user_phone = ?`, [phone])
     const result2 = query2[0][0];
-    if (result2) return res.status(400).json("Phone number already exists");
+    if (result2) return res.status(400).json({msg:"Phone number already exists"});
 
     const query3 = await db.promise().query(`SELECT * from users where user_email = ?`, [email])
     const result3 = query3[0][0];
-    if (result3) return res.status(400).json("Email already exists");
+    if (result3) return res.status(400).json({msg:"Email already exists"});
 
     const date = new Date();
     const timestamp = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
@@ -35,9 +35,11 @@ router.post('/', authenticateHeader, async (req, res) => {
         "insert into users (user_phone, user_name, user_email, user_pass, user_balance, user_createtime) VALUES (?, ?, ?, ?, ?, ?)", [phone, username, email, password, 0, timestamp], (err, results, fields) => {
             if (err) {
                 console.log(err);
-                return res.status(500).json("server error, please try again later");
+                return res.status(500).json({msg:"server error, please try again later"});
             }
-            res.status(200).json("Account registered. please login");
+            res.status(200).json({
+                msg: "Account registered. please login"
+            });
         }
     )
 
