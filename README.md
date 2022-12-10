@@ -72,7 +72,7 @@ OR
 #### pay
 
 ```http
-  post /api/topup
+  post /api/pay
 ```
 
 | Parameter     | Type      | Description                                              |
