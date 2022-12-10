@@ -50,6 +50,12 @@ OR
 #### Topup (id no: 1 only which is literali literali admeen ygy)
 
 ```http
+  GET /api/users
+```
+
+#### Topup (id no: 1 only which is literali literali admeen ygy)
+
+```http
   post /api/topup
 ```
 
