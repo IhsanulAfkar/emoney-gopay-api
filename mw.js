@@ -24,7 +24,7 @@ function authenticateToken(req, res, next) {
 }
 
 function authenticateHeader(req, res, next) {
-    const header = req.get("content-Type");
+    const header = req.get("Content-Type");
     console.log(header);
     if (header != "application/json") return res.status(403).json({
         status: 403,
@@ -34,7 +34,7 @@ function authenticateHeader(req, res, next) {
 }
 
 function rolecheck(req, res, next) {
-    if (req.response.id != "1" ) {
+    if (req.response.id != "1") {
         return res.status(403).json({
             status: 403,
             msg: "forbidden"
