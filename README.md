@@ -58,17 +58,6 @@ OR
 | `amount`  | `integer` | **Required**. ditulis tanpa titik. eg: 20000. amount > 0   |
 | `target`  | `varchar` | **Required**. notelp yang ingin ditopupin. eg:082113062251 |
 
-#### Topup (id no: 1 only which is literali literali admeen ygy)
-
-```http
-  post /api/topup
-```
-
-| Parameter | Type      | Description                                                |
-| :-------- | :-------- | :--------------------------------------------------------- |
-| `amount`  | `integer` | **Required**. ditulis tanpa titik. eg: 20000. amount > 0   |
-| `target`  | `varchar` | **Required**. notelp yang ingin ditopupin. eg:082113062251 |
-
 #### pay
 
 ```http
