@@ -7,10 +7,16 @@ function authenticateToken(req, res, next) {
     const token = authHeader && authHeader.split(' ')[1];
     // console.log(token);
 
-    if (token == null) return res.status(401).json("Bearer token not found");
+    if (token == null) return res.status(401).json({
+        status: 401,
+        msg: "Bearer token not found"
+    });
 
     jwt.verify(token, process.env.dbsecrectoken, (err, response) => {
-        if (err) return res.status(403).json("invalid token");
+        if (err) return res.status(403).json({
+            status: 403,
+            msg: "invalid token"
+        });
         req.response = response;
         next();
     })
@@ -20,13 +26,19 @@ function authenticateToken(req, res, next) {
 function authenticateHeader(req, res, next) {
     const header = req.get("content-Type");
     console.log(header);
-    if (header != "application/json") return res.status(403).json("invalid header type");
+    if (header != "application/json") return res.status(403).json({
+        status: 403,
+        msg: "invalid header type"
+    });
     next();
 }
 
 function rolecheck(req, res, next) {
     if (req.response.id != "1" ) {
-        return res.status(403).json("forbidden");
+        return res.status(403).json({
+            status: 403,
+            msg: "forbidden"
+        });
     }
     next();
 }

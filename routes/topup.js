@@ -10,13 +10,19 @@ const router = Router();
 router.post('/', [authenticateToken, authenticateHeader, rolecheck], async (req, res) => {
     const { amount, target } = req.body;
     if (amount <= 0) {
-        return res.status(401).json({msg:"Balance value must be greater than zero"});
+        return res.status(401).json({
+            status: 401,
+            msg: "Balance value must be greater than zero"
+        });
     }
 
     const queryresult = await db.promise().query("select * from users where user_phone =?", [target]);
     const result = queryresult[0][0];
     if (!result) {
-        return res.status(401).json({msg:"user not found"});
+        return res.status(401).json({
+            status: 401,
+            msg: "user not found"
+        });
     }
 
     const date = new Date();
@@ -29,7 +35,10 @@ router.post('/', [authenticateToken, authenticateHeader, rolecheck], async (req,
         "insert INTO topup (user_id,topup_amount,topup_date) VALUES (?,?,?)", [result3.user_id, amount, timestamp], (err, result, fields) => {
             if (err) {
                 console.log(err);
-                return res.status(500).json({msg:"server error"});
+                return res.status(500).json({
+                    status: 500,
+                    msg: "server error"
+                });
             }
         }
     );
@@ -37,12 +46,18 @@ router.post('/', [authenticateToken, authenticateHeader, rolecheck], async (req,
         "UPDATE users SET user_balance=user_balance+? WHERE user_phone=?", [amount, target], (err, results, fields) => {
             if (err) {
                 console.log(err);
-                return res.status(500).json({msg:"server error"});
+                return res.status(500).json({
+                    status: 500,
+                    msg: "server error"
+                });
             }
         }
     );
     // console.log(1);
-    return res.status(200).json({msg:"Topup success"})
+    return res.status(200).json({
+        status: 200,
+        msg: "Topup success"
+    })
 
 })
 
