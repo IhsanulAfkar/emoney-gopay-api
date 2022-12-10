@@ -19,7 +19,7 @@ function authenticateToken(req, res, next) {
 
 function authenticateHeader(req, res, next) {
     const header = req.get("content-Type");
-    // console.log(header);
+    console.log(header);
     if (header != "application/json") return res.status(403).json("invalid header type");
     next();
 }

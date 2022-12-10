@@ -7,6 +7,12 @@ const db = require('../db');
 
 const router = Router();
 
+router.get('/', [authenticateToken], async (req, res) => {
+    const queryResult = await db.promise().query(`SELECT user_phone, user_email, user_name, user_balance FROM users WHERE user_id=${req.response.id} LIMIT 1`);
+    const result = queryResult[0][0];
+    res.status(200).json(result);
+})
+
 router.post('/', (req, res) => {
     const { email, password, phone } = req.body;
     if (email) {
