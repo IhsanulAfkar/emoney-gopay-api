@@ -32,8 +32,8 @@ note : gk bisa register kalo username, phonenumber atau email yang dimasukin sud
 USE EXAMPLE : name, phone and/or email is already used
 
 ```json
-        status: 400,
-        msg: "Name already exists"
+        "status": 400,
+        "msg": "Name already exists"
 ```
 
 USE EXAMPLE : register succeed
