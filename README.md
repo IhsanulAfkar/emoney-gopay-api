@@ -65,22 +65,22 @@ USE EXAMPLE : wrong password, email, or phone number
 
 ```json
         "status": 401,
-        "msg": 'Invalid email/phone number or password. please create an account if you dont have one'
+        "msg": "'Invalid email/phone number or password. please create an account if you dont have one'"
 ```
 
 USE EXAMPLE : login succeed
 
 ```json
         "status": 200,
-        "msg": 'login success!',
-        "token": theToken
+        "msg": "login success!",
+        "token": "theToken"
 ```
 
 Other error
 
 ```json
         "status" : 400,
-        "msg": 'Invalid Parameters'
+        "msg": "Invalid Parameters"
 ```
 
 #### Get user data
@@ -162,14 +162,14 @@ USE EXAMPLE : paying with less than 0
 
 ```json
         "status" : 401,
-        "msg": 'Balance value must be greater than zero.'
+        "msg": "Balance value must be greater than zero."
 ```
 
 USE EXAMPLE : ur balance < amount
 
 ```json
         "status" : 401,
-        "msg": 'insufficent balance in your account. Please topup.'
+        "msg": "insufficent balance in your account. Please topup."
 ```
 
 USE EXAMPLE : server error
