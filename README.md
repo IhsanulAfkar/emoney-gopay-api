@@ -2,7 +2,7 @@
 
 EFPE AIS
 
-![aku ke API yg kubuat](https://media.discordapp.net/attachments/822065224218836992/1049128849222402069/tumblr_ptnv3uEVH61yo6773o1_400.jpg?width=314&height=406)
+<!-- ![aku ke API yg kubuat](https://media.discordapp.net/attachments/822065224218836992/1049128849222402069/tumblr_ptnv3uEVH61yo6773o1_400.jpg?width=314&height=406) -->
 
 ## Tech Stack
 
