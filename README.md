@@ -39,8 +39,8 @@ USE EXAMPLE : name, phone and/or email is already used
 USE EXAMPLE : register succeed
 
 ```json
-        status: 200,
-        msg: "Account registered. please login"
+    "status": 200,
+    "msg": "Account registered. please login"
 ```
 
 #### login
@@ -64,23 +64,23 @@ OR
 USE EXAMPLE : wrong password, email, or phone number
 
 ```json
-        status: 401,
-        msg: 'Invalid email/phone number or password. please create an account if you dont have one'
+        "status": 401,
+        "msg": 'Invalid email/phone number or password. please create an account if you dont have one'
 ```
 
 USE EXAMPLE : login succeed
 
 ```json
-        status: 200,
-        msg: 'login success!',
-        token: theToken
+        "status": 200,
+        "msg": 'login success!',
+        "token": theToken
 ```
 
 Other error
 
 ```json
-        status : 400,
-        msg: 'Invalid Parameters'
+        "status" : 400,
+        "msg": 'Invalid Parameters'
 ```
 
 #### Get user data
@@ -115,36 +115,36 @@ USE EXAMPLE : data get
 USE EXAMPLE : topup with less than equal to 0
 
 ```json
-        status: 401,
-        msg: "Balance value must be greater than zero"
+        "status": 401,
+        "msg": "Balance value must be greater than zero"
 ```
 
 USE EXAMPLE : user not found
 
 ```json
-        status: 401,
-        msg: "user not found"
+        "status": 401,
+        "msg": "user not found"
 ```
 
 USE EXAMPLE : topup success
 
 ```json
-        status: 200,
-        msg: "topup success"
+        "status": 200,
+        "msg": "topup success"
 ```
 
 USE EXAMPLE : user is not an admin yet use dis endpoint
 
 ```json
-        status: 403,
-        msg: "forbidden"
+        "status": 403,
+        "msg": "forbidden"
 ```
 
 USE EXAMPLE : server error
 
 ```json
-        status: 500,
-        msg: "server error"
+        "status": 500,
+        "msg": "server error"
 ```
 
 #### pay
@@ -161,20 +161,20 @@ USE EXAMPLE : server error
 USE EXAMPLE : paying with less than 0
 
 ```json
-        status : 401,
-        msg: 'Balance value must be greater than zero.'
+        "status" : 401,
+        "msg": 'Balance value must be greater than zero.'
 ```
 
 USE EXAMPLE : ur balance < amount
 
 ```json
-        status : 401,
-        msg: 'insufficent balance in your account. Please topup.'
+        "status" : 401,
+        "msg": 'insufficent balance in your account. Please topup.'
 ```
 
 USE EXAMPLE : server error
 
 ```json
-      status : 500,
-      msg: "server error"
+      "status" : 500,
+      "msg": "server error"
 ```
